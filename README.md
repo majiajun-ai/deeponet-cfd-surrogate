@@ -107,9 +107,9 @@ To publish a multi-platform image from a logged-in registry account:
 docker buildx build `
   --platform linux/amd64,linux/arm64 `
   --push `
-  --tag <registry-user>/deeponet-cfd-surrogate:latest .
+  --tag docker.io/mjjmjj/deeponet-cfd-surrogate:v2 .
 
-docker buildx imagetools inspect <registry-user>/deeponet-cfd-surrogate:latest
+docker buildx imagetools inspect docker.io/mjjmjj/deeponet-cfd-surrogate:v2
 ```
 
 The same tag resolves to the amd64 image on an amd64 host and the arm64 image
