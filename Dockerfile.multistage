@@ -1,0 +1,39 @@
+# Optional reference build showing separation of dependency installation and
+# the final runtime image. The default Dockerfile is the verified build path.
+FROM python:3.11-slim-bookworm AS builder
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python -m venv "$VIRTUAL_ENV"
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+COPY requirements.txt /tmp/requirements.txt
+RUN python -m pip install --no-cache-dir \
+        --index-url https://download.pytorch.org/whl/cpu \
+        "torch>=2.2" \
+    && python -m pip install --no-cache-dir -r /tmp/requirements.txt
+
+FROM python:3.11-slim-bookworm AS runtime
+
+LABEL org.opencontainers.image.title="DeepONet CFD Surrogate (multistage)"
+
+ENV VIRTUAL_ENV=/opt/venv \
+    PATH=/opt/venv/bin:$PATH \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    MPLBACKEND=Agg \
+    PYTHONPATH=/workspace/deeponet-cfd-surrogate/src \
+    OMP_NUM_THREADS=1 \
+    MKL_NUM_THREADS=1
+
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /opt/venv /opt/venv
+WORKDIR /workspace/deeponet-cfd-surrogate
+COPY . ./
+
+RUN python -c "import h5py, matplotlib, numpy, requests, scipy, torch, yaml; import cfd_pretrain; print('DeepONet multistage runtime OK; torch=' + torch.__version__)"
+
+CMD ["python", "src/train_v2.py", "--help"]

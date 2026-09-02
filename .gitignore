@@ -1,0 +1,46 @@
+# Scientific data and generated runtime artifacts
+raw/
+processed/
+processed_v2/
+checkpoints/
+checkpoints_v2/
+logs/
+logs_v2/
+reports/
+reports_v2/
+figures/
+figures_v2/
+interim/
+manifests/
+
+# Large scientific/checkpoint files
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.zip
+*.tar
+*.tar.gz
+
+# Local Python/editor artifacts
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+
+# Generated summaries from local reruns
+experiment_summary.csv
+training_history*.csv
+validation_metrics.csv
+
+# Curated, small public result artifacts.
+!results/
+!results/experiment_summary.csv
+!results/figures/
+!results/figures/*.png

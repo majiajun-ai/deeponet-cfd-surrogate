@@ -1,0 +1,11 @@
+services:
+  deeponet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: deeponet-cfd-surrogate:cpu
+    working_dir: /workspace/deeponet-cfd-surrogate
+    environment:
+      PYTHONPATH: /workspace/deeponet-cfd-surrogate/src
+    volumes:
+      - .:/workspace/deeponet-cfd-surrogate

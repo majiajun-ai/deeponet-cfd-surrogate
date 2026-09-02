@@ -1,0 +1,42 @@
+.git
+.git/**
+.github
+.github/**
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# Keep source data and generated artifacts outside the runtime image.
+raw/
+processed/
+processed_v2/
+checkpoints/
+checkpoints_v2/
+logs/
+logs_v2/
+reports/
+reports_v2/
+figures/
+figures_v2/
+interim/
+manifests/
+metadata/
+
+# Common scientific data/checkpoint archives.
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.zip
+*.tar
+*.tar.gz
+
+# Generated top-level summaries.
+experiment_summary.csv
+training_history*.csv
+validation_metrics.csv
