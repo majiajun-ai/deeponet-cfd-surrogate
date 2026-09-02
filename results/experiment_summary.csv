@@ -1,0 +1,5 @@
+experiment,query_grid,trainable_parameters,best_epoch,test_full_rmse,test_relative_l2,wake_rmse,near_cylinder_rmse,interpolation_test_rmse,extrapolation_test_rmse,mean_field_test_rmse,linear_re_interpolation_rmse
+baseline,24x16,47330,133,0.095425,0.094649,0.111985,0.152904,0.098016,0.093657,0.133891,0.117739
+larger_mlp,24x16,181602,140,0.091521,0.090777,0.107904,0.147025,0.096148,0.088302,0.133891,0.117739
+fourier_coordinates,24x16,184162,140,0.091458,0.090715,0.107728,0.145019,0.096096,0.088232,0.133891,0.117739
+best_configuration,48x32,184162,137,0.091270,0.088385,0.106116,0.139664,0.096940,0.087286,0.140311,0.118531

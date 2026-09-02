@@ -1,0 +1,4 @@
+target,architecture,runtime,smoke,one_epoch_seconds,test_field_rmse,relative_difference_from_windows
+windows,amd64,docker_cpu,PASS,4.8813,0.3517240882,0
+kunpeng_cpu,arm64,aarch64_native_python_donau_cpu,PASS,7.5315,0.3517240882,0
+ascend_910b,arm64,aarch64_native_python_torch_npu_cann_donau,PASS,250.0818,0.3517327905,2.47e-5
