@@ -1,0 +1,46 @@
+{
+  "coordinate": {
+    "x_star": "(x - cylinder_center_x) / D",
+    "y_star": "(y - cylinder_center_y) / D",
+    "time_norm": "frame_index / (T_case - 1), in [0,1], passed through branch",
+    "time_star": "frame_index * dt * Uref / D, retained as an audit field",
+    "query_grid_source": "regular grid spanning the union of case.json domains; bilinear from 64x64 release"
+  },
+  "branch_features": [
+    "Re",
+    "U_inlet",
+    "time_norm"
+  ],
+  "trunk_features": [
+    "x_star",
+    "y_star"
+  ],
+  "target_variables": [
+    "u",
+    "v"
+  ],
+  "field_physical": {
+    "u_star": "u / Uref",
+    "v_star": "v / Uref",
+    "pressure": "not present"
+  },
+  "branch_mean": [
+    492.7272644042969,
+    2.4636342525482178,
+    0.49955007433891296
+  ],
+  "branch_std": [
+    285.62835693359375,
+    1.4281431436538696,
+    0.29598453640937805
+  ],
+  "field_mean": [
+    0.9837322235107422,
+    0.9592905044555664
+  ],
+  "field_std": [
+    0.3564029932022095,
+    0.38862326741218567
+  ],
+  "normalization_fit_scope": "training cases only"
+}

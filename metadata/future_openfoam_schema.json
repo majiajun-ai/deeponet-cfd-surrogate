@@ -1,0 +1,31 @@
+{
+  "case_type": "MonopileCase",
+  "required": {
+    "case_id": "string",
+    "U": "m/s",
+    "D": "m",
+    "H": "m",
+    "Re": "dimensionless",
+    "turbulence_intensity": "fraction",
+    "coordinates": "[N,3] meters",
+    "velocity": "[N,3] m/s",
+    "pressure": "[N] Pa gauge or absolute with p_ref recorded",
+    "time": "scalar or [N] seconds"
+  },
+  "optional": [
+    "Cd",
+    "Cl",
+    "Cl_RMS",
+    "St"
+  ],
+  "operator_mapping": {
+    "branch": "[U, D, H, Re, turbulence_intensity, boundary/geometry sensors] with training normalization",
+    "trunk": "[x/D, y/D, z/D, t*]",
+    "target": "[u/U, v/U, w/U, (p-p_ref)/(0.5*rho*U^2)]"
+  },
+  "strategies": {
+    "A_all": "fine-tune all branch/trunk parameters",
+    "B_freeze_trunk": "freeze trunk; train branch and output-compatible layers",
+    "C_low_lr_all": "fine-tune all parameters with a lower learning rate"
+  }
+}
