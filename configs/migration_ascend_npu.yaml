@@ -1,0 +1,6 @@
+base_config: v2_e1.yaml
+training:
+  device: npu
+  num_workers: 0
+  num_threads: 1
+  run_name: huawei_ascend_smoke

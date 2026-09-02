@@ -1,0 +1,7 @@
+base_config: v2_e3.yaml
+data:
+  query_nx: 48
+  query_ny: 32
+  output: processed_v2/operator_dataset_v2_48x32.h5
+training:
+  run_name: v2_e4_fourier_48x32

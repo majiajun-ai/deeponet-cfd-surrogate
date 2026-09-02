@@ -1,0 +1,10 @@
+base_config: v2_common.yaml
+model:
+  name: v2_e1_baseline_more_cases
+  width: 96
+  depth: 3
+  latent_dim: 48
+  coordinate_encoding: none
+  num_frequencies: 0
+training:
+  run_name: v2_e1_baseline_more_cases

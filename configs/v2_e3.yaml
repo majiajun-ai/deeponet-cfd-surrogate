@@ -1,0 +1,10 @@
+base_config: v2_common.yaml
+model:
+  name: v2_e3_fourier_coordinates
+  width: 160
+  depth: 4
+  latent_dim: 80
+  coordinate_encoding: fourier
+  num_frequencies: 4
+training:
+  run_name: v2_e3_fourier_coordinates

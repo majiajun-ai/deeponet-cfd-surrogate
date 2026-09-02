@@ -1,0 +1,10 @@
+base_config: v2_common.yaml
+model:
+  name: v2_e2_larger_mlp
+  width: 160
+  depth: 4
+  latent_dim: 80
+  coordinate_encoding: none
+  num_frequencies: 0
+training:
+  run_name: v2_e2_larger_mlp
