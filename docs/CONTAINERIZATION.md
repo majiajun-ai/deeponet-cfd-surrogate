@@ -47,9 +47,9 @@ Buildx can publish one tag containing both Linux variants:
 docker buildx build `
   --platform linux/amd64,linux/arm64 `
   --push `
-  --tag <registry-user>/deeponet-cfd-surrogate:latest .
+  --tag docker.io/mjjmjj/deeponet-cfd-surrogate:v2 .
 
-docker buildx imagetools inspect <registry-user>/deeponet-cfd-surrogate:latest
+docker buildx imagetools inspect docker.io/mjjmjj/deeponet-cfd-surrogate:v2
 ```
 
 The registry manifest selects `linux/amd64` on an amd64 host and `linux/arm64`
